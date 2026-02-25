@@ -57,7 +57,7 @@ button:hover{
 }
 
 .yes{ background:#24e244; color:white; }
-.no{ background:#8f18df; color:white; }
+.no{ background:#e40808; color:white; }
 .memoryBtn{ background:#00c9a7; color:white; }
 
 .hidden{ display:none; }
@@ -86,7 +86,7 @@ button:hover{
 </head>
 
 <body>
-
+<div id="animationLayer"></div>
 <!-- PAGE 1 -->
 <div class="centerScreen" id="page1">
     <div class="card">
@@ -117,7 +117,7 @@ button:hover{
     <div class="card">
         <h2 id="finalText"></h2>
 
-        <button class="memoryBtn" onclick="showMemories()">Kuch Purani Yaade 💕</button>
+        <button class="memoryBtn" onclick="showMemories()"> Some precious memories (TAP)  💕</button>
 
         <div id="memorySection" class="hidden slideshow">
             <img src="img1.jpg">
@@ -149,10 +149,60 @@ Welcome my cutie 💕
 Miss shundru, the person I loved and trusted blindly...  
 and in return what I got, I don't think I deserve....
 
-I thought that after 9 September 2025, I was ready to accept everything — whatever you said would be final for me. You were everything to me, just like my family. I tried my best to fix things, and I believe true efforts never go to waste. But after 6 October, what happened was not acceptable. After 10 October, I wasn’t leaving you — I was just hurt and angry because you lied to me and even took false oaths on your parents. Still, I kept trying. I was so unwell that I got hospitalized and lost sleep because of how deeply attached I was. When I saw your second ID and your chats with Saksham, I was shocked, but I still contacted you to listen to whatever you wanted to explain. Even then, your behavior remained the same. So I thought maybe you wanted peace, and I accepted everything, became cold, and walked away.
-Then you came back, which was fine... I still had feelings for you. But when you approached me through Saksham, I couldn’t accept that. Still, forgetting everything, I contacted you again on 10 December, but once again there were mood swings. It hurt, but I stayed quiet and thought again regarding my decision and thought about giving you time....and then I started waiting for my birthday by taking the hope that....hope she will correct it or I will try...but what happened ikyk...but really I was not aware about the message still I talked to you politely but whatever you said...also hurted me...
-Now the point is, I am not waiting for you the way I used to...My priorities now are my family, my work, my future, my health, and my self growth. My eyes were always on you, no matter how many people looked at me...I never wanted anyone else. other then you... If you like someone else, that’s your choice. But if you still like me and just can’t express it as I know you...and if you want to make everything correct again believing that people make mistakes... and I made some too... then I am still here for you, ready to correct everything just for you. Otherwise, if you don’t want to come back, that’s fine. Whatever I once dreamed of achieving with you by my side, I will now achieve alone.
-I truly loved you more than anything else  and the interesting thing is that shundru, I still have your finger print in my device. In the end, i want to say that i tried one more time because i think efforts matters but i know destiny is going to draw the final line .
+ I thought that after 9 September 2025,
+ I was ready to accept everything — 
+ whatever you said would be final for me. 
+ You were everything to me, just like
+ my family. I tried my best to fix things,
+ and I believe true efforts never go to
+ waste. But after 6 October, what happened
+ was not acceptable. After 10 October,
+ I wasn’t leaving you — I was just hurt
+ and angry because you lied to me and even
+ took false oaths on your parents. 
+ Still, I kept trying. I was so unwell 
+ that I got hospitalized and lost sleep 
+ because of how deeply attached I was. 
+ When I saw your second ID and your chats 
+ with Saksham, I was shocked, but I still 
+ contacted you to listen to whatever you 
+ wanted to explain. Even then, your 
+ behavior remained the same. So I thought 
+ maybe you wanted peace, and I accepted 
+ everything, became cold, and walked away.
+ Then you came back, which was fine... 
+ I still had feelings for you. But when 
+ you approached me through Saksham, 
+ I couldn’t accept that. Still, forgetting 
+ everything, I contacted you again on 
+ 10 December, but once again there were 
+ mood swings. It hurt, but I stayed quiet
+ and thought again regarding my decision 
+ and thought about giving you time....and 
+ then I started waiting for my birthday by 
+ taking the hope that....hope she will 
+ correct it or I will try...but what happened 
+ ikyk...but really I was not aware about the 
+ message still I talked to you politely but 
+ whatever you said...also hurted me...
+Now the point is, I am not waiting for you 
+the way I used to...My priorities now are 
+my family, my work, my future, my health, 
+and my self growth. My eyes were always on 
+you, no matter how many people looked at me...
+I never wanted anyone else. other then you... 
+If you like someone else, that’s your choice.
+ But if you still like me and just can’t express 
+ it as I know you...and if you want to make 
+ everything correct again believing that 
+ people make mistakes... and I made some too...
+  then I am still here for you, ready to correct
+ everything just for you. Otherwise, if 
+ you don’t want to come back, that’s fine.
+  Whatever I once dreamed of achieving with you by my side, I will now achieve alone.
+ I truly loved you more than anything else  and the interesting thing is that shundru,
+ I still have your finger print in my device. In the end, i want to say that i tried
+ one more time because i think efforts matters but i know destiny is going to draw the final line .
 With 💕
 Vinay
 `;
@@ -160,15 +210,490 @@ Vinay
     setInterval(createRain,400);
 }
 
-function createRain(){
+
+
+    function createRain(){
     const el=document.createElement("div");
     el.classList.add("fall");
     el.innerHTML=Math.random()>0.5 ? "💖" : "🌸";
     el.style.left=Math.random()*100+"vw";
     el.style.fontSize=(Math.random()*20+20)+"px";
-    document.body.appendChild(el);
+
+    document.getElementById("animationLayer").appendChild(el);
+
     setTimeout(()=>{el.remove();},8000);
 }
+
+
+function showMemories(){
+    document.getElementById("memorySection").classList.remove("hidden");
+    document.getElementById("song").play();
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Website</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    text-align:center;
+    background:linear-gradient(135deg,#cf0a8e,#7873f5);
+    overflow-x:hidden;
+    color:#1d1717;
+}
+
+/* Glass Card */
+.card{
+    background:rgba(240, 134, 199, 0.925);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:650px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+    text-align:center;
+    max-height:90vh;
+    overflow-y:auto;
+}
+
+/* Center layout */
+.centerScreen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+button{
+    padding:12px 25px;
+    margin:15px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.yes{ background:#24e244; color:white; }
+.no{ background:#e40808; color:white; }
+.memoryBtn{ background:#00c9a7; color:white; }
+
+.hidden{ display:none; }
+
+/* Rain animation */
+.fall{
+    position:absolute;
+    animation:fall 8s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes fall{
+    0%{ transform:translateY(-10vh) rotate(0deg); opacity:1;}
+    100%{ transform:translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+/* Slideshow */
+.slideshow img{
+    width:90%;
+    max-width:400px;
+    border-radius:15px;
+    margin:15px 0;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+</style>
+</head>
+
+<body>
+<div id="animationLayer"></div>
+<!-- PAGE 1 -->
+<div class="centerScreen" id="page1">
+    <div class="card">
+        <h2>Hi guys - This is website developer Vinay...
+            Note-"Don't share this with anyone as it contains 
+            some personal things of us"
+
+
+        </h2>
+        <button onclick="nextPage()">Continue</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="centerScreen hidden" id="page2">
+    <div class="card">
+        <h2>Do you still feel something for me?
+            Choose wisely, as both options have different outcomes.
+       Choose what you truly feel.
+        </h2>
+        <button class="yes" onclick="yesClick()">Yes</button>
+        <button class="no" onclick="noClick()">No</button>
+    </div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="centerScreen hidden" id="finalPage">
+    <div class="card">
+        <h2 id="finalText"></h2>
+
+        <button class="memoryBtn" onclick="showMemories()"> Some precious memories (TAP)  💕</button>
+
+        <div id="memorySection" class="hidden slideshow">
+            <img src="img1.jpg">
+            <img src="img2.jpg">
+            <img src="img3.jpg">
+            <audio id="song" src="song.mp3"></audio>
+        </div>
+    </div>
+</div>
+
+<script>
+
+function nextPage(){
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+}
+
+function noClick(){
+    document.getElementById("page2").innerHTML="<div class='card'><h2>Ok Done</h2></div>";
+    setTimeout(()=>{ document.body.innerHTML=""; },3000);
+}
+
+function yesClick(){
+    document.getElementById("page2").classList.add("hidden");
+    document.getElementById("finalPage").classList.remove("hidden");
+
+    document.getElementById("finalText").innerHTML = `
+Welcome my cutie 💕  
+Miss shundru, the person I loved and trusted blindly...  
+and in return what I got, I don't think I deserve....
+
+ I thought that after 9 September 2025,
+ I was ready to accept everything — 
+ whatever you said would be final for me. 
+ You were everything to me, just like
+ my family. I tried my best to fix things,
+ and I believe true efforts never go to
+ waste. But after 6 October, what happened
+ was not acceptable. After 10 October,
+ I wasn’t leaving you — I was just hurt
+ and angry because you lied to me and even
+ took false oaths on your parents. 
+ Still, I kept trying. I was so unwell 
+ that I got hospitalized and lost sleep 
+ because of how deeply attached I was. 
+ When I saw your second ID and your chats 
+ with Saksham, I was shocked, but I still 
+ contacted you to listen to whatever you 
+ wanted to explain. Even then, your 
+ behavior remained the same. So I thought 
+ maybe you wanted peace, and I accepted 
+ everything, became cold, and walked away.
+ Then you came back, which was fine... 
+ I still had feelings for you. But when 
+ you approached me through Saksham, 
+ I couldn’t accept that. Still, forgetting 
+ everything, I contacted you again on 
+ 10 December, but once again there were 
+ mood swings. It hurt, but I stayed quiet
+ and thought again regarding my decision 
+ and thought about giving you time....and 
+ then I started waiting for my birthday by 
+ taking the hope that....hope she will 
+ correct it or I will try...but what happened 
+ ikyk...but really I was not aware about the 
+ message still I talked to you politely but 
+ whatever you said...also hurted me...
+Now the point is, I am not waiting for you 
+the way I used to...My priorities now are 
+my family, my work, my future, my health, 
+and my self growth. My eyes were always on 
+you, no matter how many people looked at me...
+I never wanted anyone else. other then you... 
+If you like someone else, that’s your choice.
+ But if you still like me and just can’t express 
+ it as I know you...and if you want to make 
+ everything correct again believing that 
+ people make mistakes... and I made some too...
+  then I am still here for you, ready to correct
+ everything just for you. Otherwise, if 
+ you don’t want to come back, that’s fine.
+  Whatever I once dreamed of achieving with you by my side, I will now achieve alone.
+ I truly loved you more than anything else  and the interesting thing is that shundru,
+ I still have your finger print in my device. In the end, i want to say that i tried
+ one more time because i think efforts matters but i know destiny is going to draw the final line .
+With 💕
+Vinay
+`;
+
+    setInterval(createRain,400);
+}
+
+
+
+    function createRain(){
+    const el=document.createElement("div");
+    el.classList.add("fall");
+    el.innerHTML=Math.random()>0.5 ? "💖" : "🌸";
+    el.style.left=Math.random()*100+"vw";
+    el.style.fontSize=(Math.random()*20+20)+"px";
+
+    document.getElementById("animationLayer").appendChild(el);
+
+    setTimeout(()=>{el.remove();},8000);
+}
+
+
+function showMemories(){
+    document.getElementById("memorySection").classList.remove("hidden");
+    document.getElementById("song").play();
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Website</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    text-align:center;
+    background:linear-gradient(135deg,#cf0a8e,#7873f5);
+    overflow-x:hidden;
+    color:#1d1717;
+}
+
+/* Glass Card */
+.card{
+    background:rgba(240, 134, 199, 0.925);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:650px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+    text-align:center;
+    max-height:90vh;
+    overflow-y:auto;
+}
+
+/* Center layout */
+.centerScreen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+button{
+    padding:12px 25px;
+    margin:15px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.yes{ background:#24e244; color:white; }
+.no{ background:#e40808; color:white; }
+.memoryBtn{ background:#00c9a7; color:white; }
+
+.hidden{ display:none; }
+
+/* Rain animation */
+.fall{
+    position:absolute;
+    animation:fall 8s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes fall{
+    0%{ transform:translateY(-10vh) rotate(0deg); opacity:1;}
+    100%{ transform:translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+/* Slideshow */
+.slideshow img{
+    width:90%;
+    max-width:400px;
+    border-radius:15px;
+    margin:15px 0;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+</style>
+</head>
+
+<body>
+<div id="animationLayer"></div>
+<!-- PAGE 1 -->
+<div class="centerScreen" id="page1">
+    <div class="card">
+        <h2>Hi guys - This is website developer Vinay...
+            Note-"Don't share this with anyone as it contains 
+            some personal things of us"
+
+
+        </h2>
+        <button onclick="nextPage()">Continue</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="centerScreen hidden" id="page2">
+    <div class="card">
+        <h2>Do you still feel something for me?
+            Choose wisely, as both options have different outcomes.
+       Choose what you truly feel.
+        </h2>
+        <button class="yes" onclick="yesClick()">Yes</button>
+        <button class="no" onclick="noClick()">No</button>
+    </div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="centerScreen hidden" id="finalPage">
+    <div class="card">
+        <h2 id="finalText"></h2>
+
+        <button class="memoryBtn" onclick="showMemories()"> Some precious memories (TAP)  💕</button>
+
+        <div id="memorySection" class="hidden slideshow">
+            <img src="img1.jpg">
+            <img src="img2.jpg">
+            <img src="img3.jpg">
+            <audio id="song" src="song.mp3"></audio>
+        </div>
+    </div>
+</div>
+
+<script>
+
+function nextPage(){
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+}
+
+function noClick(){
+    document.getElementById("page2").innerHTML="<div class='card'><h2>Ok Done</h2></div>";
+    setTimeout(()=>{ document.body.innerHTML=""; },3000);
+}
+
+function yesClick(){
+    document.getElementById("page2").classList.add("hidden");
+    document.getElementById("finalPage").classList.remove("hidden");
+
+    document.getElementById("finalText").innerHTML = `
+Welcome my cutie 💕  
+Miss shundru, the person I loved and trusted blindly...  
+and in return what I got, I don't think I deserve....
+
+ I thought that after 9 September 2025,
+ I was ready to accept everything — 
+ whatever you said would be final for me. 
+ You were everything to me, just like
+ my family. I tried my best to fix things,
+ and I believe true efforts never go to
+ waste. But after 6 October, what happened
+ was not acceptable. After 10 October,
+ I wasn’t leaving you — I was just hurt
+ and angry because you lied to me and even
+ took false oaths on your parents. 
+ Still, I kept trying. I was so unwell 
+ that I got hospitalized and lost sleep 
+ because of how deeply attached I was. 
+ When I saw your second ID and your chats 
+ with Saksham, I was shocked, but I still 
+ contacted you to listen to whatever you 
+ wanted to explain. Even then, your 
+ behavior remained the same. So I thought 
+ maybe you wanted peace, and I accepted 
+ everything, became cold, and walked away.
+ Then you came back, which was fine... 
+ I still had feelings for you. But when 
+ you approached me through Saksham, 
+ I couldn’t accept that. Still, forgetting 
+ everything, I contacted you again on 
+ 10 December, but once again there were 
+ mood swings. It hurt, but I stayed quiet
+ and thought again regarding my decision 
+ and thought about giving you time....and 
+ then I started waiting for my birthday by 
+ taking the hope that....hope she will 
+ correct it or I will try...but what happened 
+ ikyk...but really I was not aware about the 
+ message still I talked to you politely but 
+ whatever you said...also hurted me...
+Now the point is, I am not waiting for you 
+the way I used to...My priorities now are 
+my family, my work, my future, my health, 
+and my self growth. My eyes were always on 
+you, no matter how many people looked at me...
+I never wanted anyone else. other then you... 
+If you like someone else, that’s your choice.
+ But if you still like me and just can’t express 
+ it as I know you...and if you want to make 
+ everything correct again believing that 
+ people make mistakes... and I made some too...
+  then I am still here for you, ready to correct
+ everything just for you. Otherwise, if 
+ you don’t want to come back, that’s fine.
+  Whatever I once dreamed of achieving with you by my side, I will now achieve alone.
+ I truly loved you more than anything else  and the interesting thing is that shundru,
+ I still have your finger print in my device. In the end, i want to say that i tried
+ one more time because i think efforts matters but i know destiny is going to draw the final line .
+With 💕
+Vinay
+`;
+
+    setInterval(createRain,400);
+}
+
+
+
+    function createRain(){
+    const el=document.createElement("div");
+    el.classList.add("fall");
+    el.innerHTML=Math.random()>0.5 ? "💖" : "🌸";
+    el.style.left=Math.random()*100+"vw";
+    el.style.fontSize=(Math.random()*20+20)+"px";
+
+    document.getElementById("animationLayer").appendChild(el);
+
+    setTimeout(()=>{el.remove();},8000);
+}
+
 
 function showMemories(){
     document.getElementById("memorySection").classList.remove("hidden");
