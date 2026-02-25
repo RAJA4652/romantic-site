@@ -6,42 +6,44 @@
 <title>Special Website</title>
 
 <style>
-body{
+html, body{
     margin:0;
+    padding:0;
+    height:100%;
     font-family:'Segoe UI',sans-serif;
-    text-align:center;
-    background:linear-gradient(135deg,#cf0a8e,#7873f5);
-    overflow-x:hidden;
-    color:#1d1717;
+    background:linear-gradient(135deg,#ff6ec4,#7873f5);
+    overflow:hidden;
 }
 
-/* Glass Card */
-.card{
-    background:rgba(240, 134, 199, 0.925);
-    backdrop-filter:blur(20px);
-    padding:30px;
-    border-radius:20px;
-    width:90%;
-    max-width:650px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.3);
-    text-align:center;
-    max-height:90vh;
-    overflow-y:auto;
-}
-
-/* Center layout */
-.centerScreen{
+/* Screen Center */
+.screen{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:100vh;
+    height:100%;
     display:flex;
     justify-content:center;
     align-items:center;
     padding:20px;
 }
 
+/* Glass Card */
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:20px;
+    width:100%;
+    max-width:650px;
+    text-align:center;
+    color:#111;
+    max-height:85%;
+    overflow-y:auto;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
 button{
     padding:12px 25px;
     margin:15px;
@@ -52,60 +54,66 @@ button{
     transition:0.3s;
 }
 
-button:hover{
-    transform:scale(1.1);
-}
+button:hover{ transform:scale(1.08); }
 
 .yes{ background:#24e244; color:white; }
-.no{ background:#e40808; color:white; }
+.no{ background:#8f18df; color:white; }
 .memoryBtn{ background:#00c9a7; color:white; }
 
 .hidden{ display:none; }
 
-/* Rain animation */
-.fall{
-    position:absolute;
-    animation:fall 8s linear infinite;
+/* Floating Animation */
+@keyframes floatUp {
+    0% { transform: translateY(100%); opacity:0; }
+    50% { opacity:1; }
+    100% { transform: translateY(-120%); opacity:0; }
+}
+
+.floating {
+    position:fixed;
+    bottom:-50px;
+    font-size:24px;
+    animation: floatUp 8s linear infinite;
     pointer-events:none;
+    z-index:0;
 }
 
-@keyframes fall{
-    0%{ transform:translateY(-10vh) rotate(0deg); opacity:1;}
-    100%{ transform:translateY(110vh) rotate(360deg); opacity:0;}
-}
-
-/* Slideshow */
 .slideshow img{
     width:90%;
     max-width:400px;
     border-radius:15px;
     margin:15px 0;
-    box-shadow:0 10px 20px rgba(0,0,0,0.4);
 }
 </style>
 </head>
 
 <body>
-<div id="animationLayer"></div>
+
 <!-- PAGE 1 -->
-<div class="centerScreen" id="page1">
+<div class="screen" id="page1">
     <div class="card">
-        <h2>Hi guys - This is website developer Vinay...
-            Note-"Don't share this with anyone as it contains 
-            some personal things of us"
+        <h2>
+Hi guys - 
+This is website developer Vinay, and it’s my first project of
+making a working website, so I thought I should make this for my beloved memories
 
-
+Note-"Don't share this with anyone as it contains some personal things of us"
         </h2>
         <button onclick="nextPage()">Continue</button>
     </div>
 </div>
 
 <!-- PAGE 2 -->
-<div class="centerScreen hidden" id="page2">
+<div class="screen hidden" id="page2">
     <div class="card">
-        <h2>Do you still feel something for me?
-            Choose wisely, as both options have different outcomes.
-       Choose what you truly feel.
+        <h2>
+Before entering the web site, you have to go through one question.
+
+ Q- Do you still feel something for me?
+
+Choose wisely, as both options have different outcomes.
+
+Choose what you truly feel.
         </h2>
         <button class="yes" onclick="yesClick()">Yes</button>
         <button class="no" onclick="noClick()">No</button>
@@ -113,11 +121,11 @@ button:hover{
 </div>
 
 <!-- FINAL PAGE -->
-<div class="centerScreen hidden" id="finalPage">
+<div class="screen hidden" id="finalPage">
     <div class="card">
         <h2 id="finalText"></h2>
 
-        <button class="memoryBtn" onclick="showMemories()"> Some precious memories (TAP)  💕</button>
+        <button class="memoryBtn" onclick="showMemories()">Kuch Purani Yaade TAP HERE💕</button>
 
         <div id="memorySection" class="hidden slideshow">
             <img src="img1.jpg">
@@ -145,85 +153,50 @@ function yesClick(){
     document.getElementById("finalPage").classList.remove("hidden");
 
     document.getElementById("finalText").innerHTML = `
-Welcome my cutie 💕  
-Miss shundru, the person I loved and trusted blindly...  
-and in return what I got, I don't think I deserve....
+Welcome my cutie 💕 
+Miss shundru the person I loved and trusted blindly
+and in return what I got I don't think I deserve
+I thought that after 9 September 2025, I was ready to accept
+everything — whatever you said would be final for me. You were 
+everything to me, just like my family. I tried my best to fix things,
+and I believe true efforts never go to waste. But after 6 October, what
+happened was not acceptable. After 10 October, I wasn’t leaving you — I was 
+just hurt and angry because you lied to me and even took false oaths on your 
+parents. Still, I kept trying. I was so unwell that I got hospitalized and lost 
+sleep because of how deeply attached I was. When I saw your second ID and your chats 
+with Saksham, I was shocked, but I still contacted you to listen to whatever you wanted to 
+explain. Even then, your behavior remained the same. So I thought maybe you wanted peace, 
+and I accepted everything, became cold, and walked away.
 
- I thought that after 9 September 2025,
- I was ready to accept everything — 
- whatever you said would be final for me. 
- You were everything to me, just like
- my family. I tried my best to fix things,
- and I believe true efforts never go to
- waste. But after 6 October, what happened
- was not acceptable. After 10 October,
- I wasn’t leaving you — I was just hurt
- and angry because you lied to me and even
- took false oaths on your parents. 
- Still, I kept trying. I was so unwell 
- that I got hospitalized and lost sleep 
- because of how deeply attached I was. 
- When I saw your second ID and your chats 
- with Saksham, I was shocked, but I still 
- contacted you to listen to whatever you 
- wanted to explain. Even then, your 
- behavior remained the same. So I thought 
- maybe you wanted peace, and I accepted 
- everything, became cold, and walked away.
- Then you came back, which was fine... 
- I still had feelings for you. But when 
- you approached me through Saksham, 
- I couldn’t accept that. Still, forgetting 
- everything, I contacted you again on 
- 10 December, but once again there were 
- mood swings. It hurt, but I stayed quiet
- and thought again regarding my decision 
- and thought about giving you time....and 
- then I started waiting for my birthday by 
- taking the hope that....hope she will 
- correct it or I will try...but what happened 
- ikyk...but really I was not aware about the 
- message still I talked to you politely but 
- whatever you said...also hurted me...
-Now the point is, I am not waiting for you 
-the way I used to...My priorities now are 
-my family, my work, my future, my health, 
-and my self growth. My eyes were always on 
-you, no matter how many people looked at me...
-I never wanted anyone else. other then you... 
-If you like someone else, that’s your choice.
- But if you still like me and just can’t express 
- it as I know you...and if you want to make 
- everything correct again believing that 
- people make mistakes... and I made some too...
-  then I am still here for you, ready to correct
- everything just for you. Otherwise, if 
- you don’t want to come back, that’s fine.
-  Whatever I once dreamed of achieving with you by my side, I will now achieve alone.
- I truly loved you more than anything else  and the interesting thing is that shundru,
- I still have your finger print in my device. In the end, i want to say that i tried
- one more time because i think efforts matters but i know destiny is going to draw the final line .
-With 💕
-Vinay
+Then you came back, which was fine... I still had feelings for you. But when you approached me
+through Saksham, I couldn’t accept that. Still, forgetting everything, I contacted you again on 10 December,
+but once again there were mood swings. It hurt, but I stayed quiet and thought again regarding my decision.
+
+ Now the point is, I am not waiting for you the way I used to...My priorities now are my family, my work, my future, my health, and my self growth. My eyes were always on you, no matter how many people looked at me...I never wanted anyone else. other then you... If you like someone else, that’s your choice. But if you still like me and just can’t express it as I know you...and if you want to make
+  everything correct again believing that people make mistakes... and I made some too... then I am still here for you, ready to correct everything just for you. Otherwise, if you don’t want to come back, that’s fine. Whatever I once dreamed 
+  of achieving with you by my side, I will now achieve alone.
+   I truly loved you more than anything else and the interesting thing is that shundru, I still have your finger print in my device. In the end, i want to say that i tried one more time because i think efforts matters but i
+  know destiny is going to draw the final line....
+  
+  
+  With 
+  
+  💕 Vinay
 `;
 
-    setInterval(createRain,400);
+    startFloating();
 }
 
-
-
-    function createRain(){
-    const el=document.createElement("div");
-    el.classList.add("fall");
-    el.innerHTML=Math.random()>0.5 ? "💖" : "🌸";
-    el.style.left=Math.random()*100+"vw";
-    el.style.fontSize=(Math.random()*20+20)+"px";
-
-    document.getElementById("animationLayer").appendChild(el);
-
-    setTimeout(()=>{el.remove();},8000);
+function startFloating(){
+    for(let i=0;i<15;i++){
+        let el=document.createElement("div");
+        el.className="floating";
+        el.innerHTML=Math.random()>0.5?"💖":"🌸";
+        el.style.left=Math.random()*100+"%";
+        el.style.animationDuration=(6+Math.random()*4)+"s";
+        document.body.appendChild(el);
+    }
 }
-
 
 function showMemories(){
     document.getElementById("memorySection").classList.remove("hidden");
